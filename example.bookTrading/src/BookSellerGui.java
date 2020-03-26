@@ -33,7 +33,9 @@ class BookSellerGui extends JFrame {
 				try {
 					String title = titleField.getText().trim();
 					String price = priceField.getText().trim();
-					myAgent.updateCatalogue(title, Integer.parseInt(price));
+					//myAgent.updateCatalogue(title, Integer.parseInt(price));
+					newPrice=Integer.parseInt(price);
+					myAgent.updateCatalogue(title, randomWalk(newPrice));
 					titleField.setText("");
 					priceField.setText("");
 				}
@@ -65,4 +67,49 @@ class BookSellerGui extends JFrame {
 		setLocation(centerX - getWidth() / 2, centerY - getHeight() / 2);
 		super.setVisible(true);
 	}	
-}
+
+	static int newPrice;
+	static int paiment;
+	public static int randomWalk(int x) 
+		{
+		int currentPosition = 0;
+		int currentMax = 0;
+		int currentMin = newPrice;
+
+		while (currentPosition != 3 && currentPosition != -3)
+
+			//step randomly
+
+			{
+			double random = Math.random();
+			if(random < 0.5)
+			{
+			currentPosition++;
+			if (currentPosition > currentMax) {
+				currentMax = currentMin++;
+				paiment = paiment + currentMax;
+			}			}
+			else {
+				currentPosition--;
+				if (currentPosition > currentMin) {
+					currentMax = currentMin++;
+					paiment = paiment + currentMax;
+				}	
+			}
+
+			// print location
+
+			System.out.println("curent location: " + currentPosition);
+			}
+		if(currentPosition ==3 )
+		{
+
+			System.out.println("min position was: " + currentMin);;
+		}
+		else {		
+			System.out.println("max position was: " + currentMax);;
+
+			}
+		return paiment;
+		}
+	}
