@@ -35,9 +35,20 @@ class BookSellerGui extends JFrame {
 					String price = priceField.getText().trim();
 					//myAgent.updateCatalogue(title, Integer.parseInt(price));
 					newPrice=Integer.parseInt(price);
-					myAgent.updateCatalogue(title, randomWalk(newPrice));
+					int updatePrice= Integer.parseInt(price);
+
+					float acceptedPrice=newPrice/2;
+					float posiblePrice=newPrice-(newPrice*75/100);
+
+					while(newPrice>posiblePrice) {
+						if (acceptedPrice>posiblePrice) {
+							newPrice=(int) (newPrice-newPrice/5);
+							System.out.println();
+						}
+					myAgent.updateCatalogue(title, randomWalk(updatePrice));
 					titleField.setText("");
 					priceField.setText("");
+					}
 				}
 				catch (Exception e) {
 					JOptionPane.showMessageDialog(BookSellerGui.this, "Invalid values. "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE); 
@@ -70,6 +81,8 @@ class BookSellerGui extends JFrame {
 
 	static int newPrice;
 	static int paiment;
+	static float posiblePrice;
+	static float acceptedPrice;
 	public static int randomWalk(int x) 
 		{
 		int currentPosition = 0;

@@ -138,8 +138,12 @@ public class BookBuyerAgent extends Agent {
 					// Purchase order reply received
 					if (reply.getPerformative() == ACLMessage.INFORM) {
 						// Purchase successful. We can terminate
-						System.out.println(targetBookTitle+" successfully purchased from agent "+reply.getSender().getName());
-						System.out.println("Price = "+bestPrice);
+						//System.out.println(targetBookTitle+" successfully purchased from agent "+reply.getSender().getName());
+						//System.out.println("Price = "+bestPrice);
+
+						if(BookSellerGui.acceptedPrice>=BookSellerGui.posiblePrice)
+						 {System.out.println(targetBookTitle + " successfully purchased from agent " + reply.getSender().getName());
+							System.out.println("Price = " + bestPrice);}
 						myAgent.doDelete();
 					}
 					else {

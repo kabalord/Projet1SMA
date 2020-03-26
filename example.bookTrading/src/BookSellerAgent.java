@@ -68,6 +68,7 @@ public class BookSellerAgent extends Agent {
 			public void action() {
 				catalogue.put(title, new Integer(price));
 				System.out.println(title+" inserted into catalogue. Price = "+price);
+				System.out.println("final price of " + title + " is: "+BookSellerGui.newPrice);
 			}
 		} );
 	}
