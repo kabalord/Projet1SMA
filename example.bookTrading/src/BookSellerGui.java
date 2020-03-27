@@ -39,11 +39,18 @@ class BookSellerGui extends JFrame {
 
 					float acceptedPrice=newPrice/2;
 					float posiblePrice=newPrice-(newPrice*75/100);
+					
+					float acceptedOffert=acceptedPrice;
+					float posibleOffert=posiblePrice-(newPrice*75/100);
 
 					while(newPrice>posiblePrice) {
-						if (acceptedPrice>posiblePrice) {
+						if (acceptedPrice > posiblePrice && newPrice != acceptedOffert) {
 							newPrice=(int) (newPrice-newPrice/5);
-							System.out.println();
+							System.out.println("randomWalker: " + newPrice);
+						}
+						if (acceptedOffert > posibleOffert && newPrice != acceptedPrice) {
+							newPrice=(int)(newPrice-newPrice/5);
+							System.out.println("imitatingAgent: " + newPrice);
 						}
 					myAgent.updateCatalogue(title, randomWalk(updatePrice));
 					titleField.setText("");
@@ -83,6 +90,8 @@ class BookSellerGui extends JFrame {
 	static int paiment;
 	static float posiblePrice;
 	static float acceptedPrice;
+	static float posibleOffert;
+	static float acceptedOffert;
 	public static int randomWalk(int x) 
 		{
 		int currentPosition = 0;

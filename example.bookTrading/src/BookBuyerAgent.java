@@ -143,7 +143,7 @@ public class BookBuyerAgent extends Agent {
 
 						if(BookSellerGui.acceptedPrice>=BookSellerGui.posiblePrice)
 						 {System.out.println(targetBookTitle + " successfully purchased from agent " + reply.getSender().getName());
-							System.out.println("Price = " + bestPrice);}
+							System.out.println("Price of vente= " + bestPrice);}
 						myAgent.doDelete();
 					}
 					else {

@@ -1,10 +1,1 @@
-/BookBuyerAgent$1.class
-/BookBuyerAgent$RequestPerformer.class
-/BookBuyerAgent.class
-/BookSellerAgent$1.class
-/BookSellerAgent$OfferRequestsServer.class
-/BookSellerAgent$PurchaseOrdersServer.class
-/BookSellerAgent.class
-/BookSellerGui$1.class
-/BookSellerGui$2.class
-/BookSellerGui.class
+/BookImitatingAgent.class
