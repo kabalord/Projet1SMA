@@ -42,6 +42,10 @@ class BookSellerGui extends JFrame {
 					
 					float acceptedOffert=acceptedPrice;
 					float posibleOffert=posiblePrice-(newPrice*75/100);
+					
+					float adaptiveOffert=acceptedOffert;
+					float adaptivePrice=acceptedPrice;
+					float adaptiveAccepted=newPrice;
 
 					while(newPrice>posiblePrice) {
 						if (acceptedPrice > posiblePrice && newPrice != acceptedOffert) {
@@ -51,6 +55,10 @@ class BookSellerGui extends JFrame {
 						if (acceptedOffert > posibleOffert && newPrice != acceptedPrice) {
 							newPrice=(int)(newPrice-newPrice/5);
 							System.out.println("imitatingAgent: " + newPrice);
+						}
+						if(adaptiveOffert > adaptivePrice && newPrice > adaptiveAccepted) {
+							newPrice=(int) (newPrice-newPrice/2);
+							System.out.println("AdaptativeAgent: " + newPrice);
 						}
 					myAgent.updateCatalogue(title, randomWalk(updatePrice));
 					titleField.setText("");
@@ -92,6 +100,9 @@ class BookSellerGui extends JFrame {
 	static float acceptedPrice;
 	static float posibleOffert;
 	static float acceptedOffert;
+	static float adaptiveOffert;
+	static float adaptivePrice;
+	static float adaptiveAccepted;
 	public static int randomWalk(int x) 
 		{
 		int currentPosition = 0;
